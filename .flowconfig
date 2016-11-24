@@ -1,0 +1,25 @@
+[ignore]
+.*/**/*.native.js
+.*/react/node_modules/.*
+.*/node_modules/fbjs
+
+.*/node_modules/cjson/test/fixtures/templates/.*.json
+
+.*/node_modules/flow-coverage-report
+
+[include]
+../node_modules/fbjs/lib
+../node_modules/react
+
+[libs]
+../node_modules/fbjs/flow/lib
+../node_modules/iflow-lodash
+
+[options]
+suppress_type=$FlowIssue
+esproposal.class_instance_fields=enable
+esproposal.class_static_fields=enable
+module.system.node.resolve_dirname=node_modules
+module.system.node.resolve_dirname=src
+module.name_mapper.extension='css' -> '<PROJECT_ROOT>/config/flow/css'
+module.name_mapper='^\(.*\)\.\(jpg\|png\|gif\|eot\|svg\|ttf\|woff\|woff2\|mp4\|webm\)$' -> '<PROJECT_ROOT>/config/flow/file'

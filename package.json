@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server ./src/app.js --hot --config ./webpack/dev.config"
+    "start": "webpack-dev-server ./src/app.js --hot --config ./webpack/dev.config",
+    "lint": "eslint ./src",
+    "flow": "flow"
   },
   "repository": {
     "type": "git",
@@ -35,10 +37,25 @@
     "babel-preset-stage-0": "^6.5.0",
     "babel-runtime": "6.11.6",
     "eslint": "^3.10.2",
+    "eslint-config-airbnb": "^13.0.0",
     "eslint-loader": "^1.6.1",
+    "eslint-plugin-flowtype": "^2.25.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.0.1",
+    "eslint-plugin-react": "^6.7.1",
+    "flow-bin": "^0.36.0",
+    "pre-commit": "^1.1.3",
     "webpack": "^1.13.3"
   },
   "dependencies": {
-    "babel-polyfill": "^6.16.0"
+    "babel-polyfill": "^6.16.0",
+    "react": "^15.4.1"
+  },
+  "pre-commit": [
+    "lint",
+    "flow"
+  ],
+  "eslintConfig": {
+    "extends": "./eslint.js"
   }
 }

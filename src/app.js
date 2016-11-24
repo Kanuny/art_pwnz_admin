@@ -1,5 +1,3 @@
 import 'babel-polyfill';
 
-(function () {
-  console.log('test');
-})();
+console.log('test');
