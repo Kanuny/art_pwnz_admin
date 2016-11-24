@@ -8,6 +8,7 @@ module.exports = {
   },
   "rules": {
     "generator-star-spacing": 0,
+    "arrow-parens": 0,
     "react/no-multi-comp": 0,
     "react/jsx-filename-extension": 0,
     "react/require-extension": 0,

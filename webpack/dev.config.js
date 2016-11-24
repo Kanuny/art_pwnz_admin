@@ -4,7 +4,14 @@ module.exports = {
   entry: './src/app.js',
   output: {
     path: './bin',
-    filename: 'app.bundle.js'
+    filename: 'app.bundle.js',
+  },
+  resolve: {
+    extensions: ['', '.js', '.json'],
+    modulesDirectories: [
+      'src',
+      'node_modules',
+    ],
   },
   module: {
     preLoaders: [
@@ -12,17 +19,17 @@ module.exports = {
         test: /\.js$/,
         loader: 'eslint',
         include: './src/*',
-      }
+      },
     ],
     loaders: [{
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-        query: require('./babel.dev')
+      test: /\.js$/,
+      exclude: /node_modules/,
+      loader: 'babel-loader',
+      query: require('./babel.dev'),
     }]
   },
   eslint: {
     configFile: path.join(__dirname, './eslint.js'),
-    useEslintrc: false
+    useEslintrc: false,
   },
 };
