@@ -1,0 +1,44 @@
+{
+  "name": "art_pwnz_admin",
+  "version": "0.0.1",
+  "description": "admin for art pwnz",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server ./src/app.js --hot --config ./webpack/dev.config"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kanuny/art_pwnz_admin.git"
+  },
+  "author": "Andrey Kanunnikov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kanuny/art_pwnz_admin/issues"
+  },
+  "homepage": "https://github.com/Kanuny/art_pwnz_admin#readme",
+  "devDependencies": {
+    "babel-core": "6.11.4",
+    "babel-eslint": "6.1.2",
+    "babel-loader": "6.2.4",
+    "babel-plugin-syntax-flow": "^6.13.0",
+    "babel-plugin-syntax-trailing-function-commas": "6.8.0",
+    "babel-plugin-transform-class-properties": "6.11.5",
+    "babel-plugin-transform-flow-strip-types": "^6.8.0",
+    "babel-plugin-transform-object-rest-spread": "6.8.0",
+    "babel-plugin-transform-react-constant-elements": "6.9.1",
+    "babel-plugin-transform-react-inline-elements": "^6.8.0",
+    "babel-plugin-transform-runtime": "6.12.0",
+    "babel-preset-es2015": "6.9.0",
+    "babel-preset-es2016": "6.11.3",
+    "babel-preset-react": "6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-runtime": "6.11.6",
+    "eslint": "^3.10.2",
+    "eslint-loader": "^1.6.1",
+    "webpack": "^1.13.3"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.16.0"
+  }
+}
