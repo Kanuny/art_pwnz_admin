@@ -9,7 +9,7 @@ const load = (r: RequestFunctionType) =>
 ;
 
 const create = (r: RequestFunctionType) =>
-  (data: Object): Promise<LoginApiResponseType> => r({
+  (data: Object): Promise<any> => r({
     method: 'POST',
     url: '/articles/',
     data,

@@ -3,7 +3,6 @@ import axios from 'axios';
 
 import type { RequestFunctionType } from './types';
 import articles from './modules/articles';
-import type { LoginApiRequestType } from './modules/auth'; // eslint-disable-line
 
 type RequestAsPromisedResponseType = { data: Object | Array<*> };
 

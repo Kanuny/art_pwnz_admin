@@ -15,7 +15,7 @@ const initialState = {
   entities: [],
 };
 
-export default function reducer(state: ArticlesType = initialState, action = {}) {
+export default function reducer(state: ArticlesType = initialState, action: Object = {}) {
   switch (action.type) {
     case LOAD_SUCCESS: {
       return {

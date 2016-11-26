@@ -1,5 +1,8 @@
 import React, { PureComponent } from 'react';
 import { Link } from 'react-router';
+import { css } from 'aphrodite';
+
+import styles from '../styles';
 
 type GalleryPropType = {
   articles: Array<Object>,
@@ -16,11 +19,19 @@ export default class GalleryGrid extends PureComponent {
 
   render() {
     return (
-      <div>
-        <Link to="/article/new"> + </Link>
+      <div className={css(styles.gridWrapper)}>
+        <Link className={css(styles.addBtn)} to="/article/new"> + </Link>
 
-        Some gallery there
-        { this.props.articles.length }
+        {
+          this.props.articles.map((item) =>
+            <img
+              key={item.id}
+              className={css(styles.addBtn)}
+              alt="banner preview"
+              src={item.images[0].preview}
+            />,
+          )
+        }
       </div>
     );
   }
