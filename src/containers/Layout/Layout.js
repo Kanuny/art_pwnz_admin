@@ -1,18 +1,20 @@
 // @flow
 import React from 'react';
+import { css } from 'aphrodite';
+
+import styles from './styles';
 
 type LayoutPropType = {
-  children: node,
+  children?: any,
 }
 
 export default function Layout(props: LayoutPropType) {
-  console.log(props.children);
   return (
-    <div>
-      <nav>
+    <div className={css(styles.layout)} >
+      <nav className={css(styles.navList)} >
         some nav will be there
       </nav>
-      <section>
+      <section className={css(styles.view)} >
         { props.children }
       </section>
     </div>

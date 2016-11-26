@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server ./src/app.js --hot --config ./webpack/dev.config",
+    "start": "webpack-dev-server ./src/app.js --hot --history-api-fallback --config ./webpack/dev.config",
     "lint": "eslint ./src",
     "flow": "flow"
   },
@@ -48,8 +48,10 @@
     "webpack": "^1.13.3"
   },
   "dependencies": {
+    "aphrodite": "^1.1.0",
     "axios": "^0.15.2",
     "babel-polyfill": "^6.16.0",
+    "lodash": "^4.17.2",
     "modernizr": "^3.3.1",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
@@ -58,6 +60,7 @@
     "react-router-redux": "^4.0.7",
     "redux": "^3.6.0",
     "redux-connect": "^4.0.2",
+    "redux-form": "^6.2.0",
     "redux-logger": "^2.7.4",
     "redux-saga": "^0.13.0",
     "redux-storage": "^4.1.1",

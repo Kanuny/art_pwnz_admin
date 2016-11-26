@@ -1,19 +1,11 @@
-import React, { PureComponent } from 'react';
+// @flow
+import { connect } from 'react-redux';
 
-type GalleryPropType = Object
+import { load, add } from '../../redux/modules/articles';
 
-export default class Gallery extends PureComponent {
-  props: GalleryPropType
+import GalleryGrid from './components/GalleryGrid';
 
-  componentDidMount() {
-    console.log('!');
-  }
-
-  render() {
-    return (
-      <div>
-        Some gallery there
-      </div>
-    );
-  }
-}
+export default connect(
+  ({ articles }) => ({ articles: articles.entities }),
+  { load, add },
+)(GalleryGrid);
