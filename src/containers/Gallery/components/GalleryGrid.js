@@ -8,6 +8,7 @@ type GalleryPropType = {
   articles: Array<Object>,
 
   load: Function,
+  getById: Function,
 }
 
 export default class GalleryGrid extends PureComponent {
@@ -24,9 +25,10 @@ export default class GalleryGrid extends PureComponent {
 
         {
           this.props.articles.map((item) =>
-            <img
+            <img // eslint-disable-line
               key={item.id}
               className={css(styles.addBtn)}
+              onClick={() => this.props.getById(item.id)}
               alt="banner preview"
               src={item.images[0].preview}
             />,

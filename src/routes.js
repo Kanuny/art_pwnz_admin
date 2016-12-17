@@ -12,6 +12,8 @@ export default (browserHistory) => (
     <Route path="/" component={Layout}>
       <Route path="articles" component={Gallery} />
       <Route path="article/new" component={Article} />
+      <Route path="article/:id" component={Article} />
+
     </Route>
     <Route path="*" component={NotFound} />
   </Router>
