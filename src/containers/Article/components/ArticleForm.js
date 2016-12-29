@@ -9,6 +9,10 @@ import { TYPES } from '../../../helpers/form';
 
 type FormType = {
   handleSubmit: Function,
+  getById: Function,
+  removeArticle: Function,
+
+  params: ?Object,
 }
 
 const imagesFields = [
@@ -33,7 +37,11 @@ const checkboxesConfig = [
 
 export default class ArticleForm extends PureComponent { // eslint-disable-line
   props: FormType
-
+  componentDidMount() {
+    if (this.props.params.id) {
+      this.props.getById(this.props.params.id);
+    }
+  }
   render() {
     return (
       <form onSubmit={this.props.handleSubmit} >
@@ -76,6 +84,8 @@ export default class ArticleForm extends PureComponent { // eslint-disable-line
         </div>
 
         <button onSubmit={this.props.handleSubmit} > Add </button>
+        <button onClick={this.props.removeArticle} > Remove </button>
+
       </form>
     );
   }

@@ -1,6 +1,6 @@
 // @flow
 const LOAD = 'art_pwnz/article/LOAD';
-const LOAD_SUCCESS = 'art_pwnz/article/LOAD_SUCCESS';
+export const LOAD_SUCCESS = 'art_pwnz/article/LOAD_SUCCESS';
 const LOAD_FAILED = 'art_pwnz/article/LOAD_FAILED';
 
 type ArticleType = {
@@ -8,7 +8,7 @@ type ArticleType = {
 };
 
 const initialState = {
-  entity: Object,
+  entity: {},
 };
 
 export default function reducer(state: ArticleType = initialState, action: Object = {}) {
@@ -31,3 +31,4 @@ export function getById(id: number) {
     request: (api: Object) => api.articles.getById(id),
   };
 }
+

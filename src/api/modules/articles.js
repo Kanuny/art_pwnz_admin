@@ -23,8 +23,16 @@ const create = (r: RequestFunctionType) =>
   })
 ;
 
+const remove = (r: RequestFunctionType) =>
+  (id: number): Promise<any> => r({
+    method: 'DELETE',
+    url: `/articles/${id}`,
+  })
+;
+
 export default {
   load,
   create,
   getById,
+  remove,
 };

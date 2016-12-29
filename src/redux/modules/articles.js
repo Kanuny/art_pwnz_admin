@@ -7,6 +7,11 @@ const ADD = 'art_pwnz/articles/ADD';
 const ADD_SUCCESS = 'art_pwnz/articles/ADD_SUCCESS';
 const ADD_FAILED = 'art_pwnz/articles/ADD_FAILED';
 
+const REMOVE = 'art_pwnz/articles/REMOVE';
+const REMOVE_SUCCESS = 'art_pwnz/articles/REMOVE_SUCCESS';
+const REMOVE_FAILED = 'art_pwnz/articles/REMOVE_FAILED';
+
+
 type ArticlesType = {
   entities: Array<Object>
 };
@@ -40,5 +45,12 @@ export function add(data: Object) {
   return {
     types: [ADD, ADD_SUCCESS, ADD_FAILED],
     request: (api: Object) => api.articles.create(data),
+  };
+}
+
+export function remove(id: number) {
+  return {
+    types: [REMOVE, REMOVE_SUCCESS, REMOVE_FAILED],
+    request: (api: Object) => api.articles.remove(id),
   };
 }
