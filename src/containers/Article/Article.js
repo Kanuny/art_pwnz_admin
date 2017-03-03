@@ -4,25 +4,31 @@ import { connect } from 'react-redux';
 import { compose } from 'lodash/fp';
 import { browserHistory } from 'react-router';
 
-import { add, remove as removeArticle } from '../../redux/modules/articles';
+import { add, remove as removeArticle, update } from '../../redux/modules/articles';
 import { getById } from '../../redux/modules/article';
 
 import ArticleFrom from './components/ArticleForm';
 
 export default compose(
   connect(
-    ({ article }) => ({
+    ({ article, images }) => ({
       initialValues: {
         ...article.entity,
+        ...images.reduce((memo, image) => ({
+          ...memo,
+          [image.name]: image.preview,
+        }), {}),
       },
     }),
-    { onSubmit: add, getById, removeArticle },
+    { add, update, getById, removeArticle },
     (props, methods, ownProps) => ({
       ...props,
       ...methods,
       ...ownProps,
-      onSubmit: (values) =>
-        methods.onSubmit(values).then(() => browserHistory.push('/articles')),
+      isAdding: !ownProps.params.id,
+      onSubmit: (values) => (!ownProps.params.id
+        ? methods.add(values).then(() => browserHistory.push('/articles'))
+        : methods.update(values, props.initialValues).then(() => browserHistory.push('/articles'))),
       removeArticle: () =>
         methods
           .removeArticle(props.initialValues.id)

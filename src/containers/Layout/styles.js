@@ -15,4 +15,7 @@ export default StyleSheet.create({
     flex: '1',
     margin: '0 0 0 10px',
   },
+  link: {
+    display: 'block',
+  },
 });

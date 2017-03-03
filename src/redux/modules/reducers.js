@@ -7,6 +7,7 @@ import { reducer as formReducer } from 'redux-form';
 import articles from './articles';
 import article from './article';
 import images from './images';
+import videos from './videos';
 
 export default combineReducers({
   routing: routerReducer,
@@ -16,4 +17,5 @@ export default combineReducers({
   articles,
   article,
   images,
+  videos,
 });

@@ -11,8 +11,11 @@ type FormType = {
   handleSubmit: Function,
   getById: Function,
   removeArticle: Function,
+  isAdding: boolean,
 
-  params: ?Object,
+  params: {
+    id?: number,
+  },
 }
 
 const imagesFields = [
@@ -23,12 +26,12 @@ const imagesFields = [
   { props: { label: 'Fragment 3' }, type: TYPES.IMAGE, name: 'fragment3' },
 ];
 const formConfig = [
-  { props: { label: 'Name' }, type: 'text', name: 'name' },
-  { props: { label: 'Description' }, type: 'text', name: 'description' },
+  { props: { label: 'Name' }, type: TYPES.LOCALE, name: 'name' },
+  { props: { label: 'Description' }, type: TYPES.LOCALE, name: 'description' },
   { props: { label: 'Year' }, type: 'text', name: 'year' },
-  { props: { label: 'Genre' }, type: 'text', name: 'genre' },
-  { props: { label: 'Post Name' }, type: 'text', name: 'postName' },
-  { props: { label: 'Post Description' }, type: 'text', name: 'postDescription' },
+  { props: { label: 'Genre' }, type: TYPES.LOCALE, name: 'genre' },
+  { props: { label: 'Post Name' }, type: TYPES.LOCALE, name: 'postName' },
+  { props: { label: 'Post Description' }, type: TYPES.LOCALE, name: 'postDescription' },
 ];
 const checkboxesConfig = [
   { props: { label: 'Is Hidden' }, type: 'checkbox', name: 'hidden' },
@@ -82,10 +85,14 @@ export default class ArticleForm extends PureComponent { // eslint-disable-line
             </div>
           </div>
         </div>
-
-        <button onSubmit={this.props.handleSubmit} > Add </button>
-        <button onClick={this.props.removeArticle} > Remove </button>
-
+        {
+          this.props.isAdding
+            ? <button onSubmit={this.props.handleSubmit} > Add </button>
+            : <div>
+              <button onSubmit={this.props.handleSubmit} > Edit </button>
+              <button onClick={this.props.removeArticle} > Remove </button>
+            </div>
+        }
       </form>
     );
   }

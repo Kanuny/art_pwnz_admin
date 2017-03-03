@@ -6,6 +6,8 @@ import NotFound from './components/NotFound';
 import Layout from './containers/Layout/Layout';
 import Gallery from './containers/Gallery/Gallery';
 import Article from './containers/Article/Article';
+import Videos from './containers/VideoGallery/Videos';
+import Video from './containers/VideoGallery/Video';
 
 export default (browserHistory) => (
   <Router history={browserHistory} render={(props) => <ReduxAsyncConnect {...props} />}>
@@ -13,7 +15,9 @@ export default (browserHistory) => (
       <Route path="articles" component={Gallery} />
       <Route path="article/new" component={Article} />
       <Route path="article/:id" component={Article} />
-
+      <Route path="videos" component={Videos} />
+      <Route path="videos/new" component={Video} />
+      <Route path="videos/:id" component={Video} />
     </Route>
     <Route path="*" component={NotFound} />
   </Router>

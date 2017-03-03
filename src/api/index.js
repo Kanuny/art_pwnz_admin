@@ -4,6 +4,7 @@ import axios from 'axios';
 import type { RequestFunctionType } from './types';
 import articles from './modules/articles';
 import images from './modules/images';
+import videos from './modules/videos';
 
 type RequestAsPromisedResponseType = { data: Object | Array<*> };
 
@@ -39,6 +40,7 @@ export default function genApi({ baseUrl, token }: { baseUrl: string, token?: st
   const api = {
     articles: (() => bind(articles))(),
     images: (() => bind(images))(),
+    videos: (() => bind(videos))(),
   };
 
   return api;

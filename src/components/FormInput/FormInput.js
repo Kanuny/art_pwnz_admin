@@ -13,6 +13,24 @@ type FormInputType = {
   type: ?string,
   label: string,
 }
+
+function Locale(props: Object) {
+  const { input } = props;
+
+  return (
+    <div>
+      <input
+        value={input.value.ru || ''}
+        onChange={(e) => input.onChange({ en: input.value.en || '', ru: e.target.value })}
+      />
+      <input
+        value={input.value.en || ''}
+        onChange={(e) => input.onChange({ ru: input.value.ru || '', en: e.target.value })}
+      />
+    </div>
+  );
+}
+
 class Image extends PureComponent {
   props: Object
   state = {
@@ -38,7 +56,7 @@ class Image extends PureComponent {
     return (
       <label className={css(styles.imageWrapper)} >
         <input className={css(styles.imgInput)} type="file" onChange={this.onFileChange} />
-        { data ? <img className={css(styles.img)} alt="banner preview" src={data} /> : null }
+        { data || input.value ? <img className={css(styles.img)} alt="banner preview" src={data || input.value} /> : null }
       </label>
     );
   }
@@ -50,6 +68,9 @@ export default class FromInput extends PureComponent {
     switch (type) {
       case TYPES.IMAGE: {
         return <Image input={input} />;
+      }
+      case TYPES.LOCALE: {
+        return <Locale input={input} />;
       }
 
       default: {

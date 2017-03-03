@@ -11,6 +11,9 @@ const REMOVE = 'art_pwnz/articles/REMOVE';
 const REMOVE_SUCCESS = 'art_pwnz/articles/REMOVE_SUCCESS';
 const REMOVE_FAILED = 'art_pwnz/articles/REMOVE_FAILED';
 
+const UPDATE = 'art_pwnz/articles/UPDATE';
+const UPDATE_SUCCESS = 'art_pwnz/articles/UPDATE_SUCCESS';
+const UPDATE_FAIL = 'art_pwnz/articles/UPDATE_FAIL';
 
 type ArticlesType = {
   entities: Array<Object>
@@ -25,7 +28,7 @@ export default function reducer(state: ArticlesType = initialState, action: Obje
     case LOAD_SUCCESS: {
       return {
         ...state,
-        entities: action.result,
+        entities: action.result.articles,
       };
     }
 
@@ -52,5 +55,22 @@ export function remove(id: number) {
   return {
     types: [REMOVE, REMOVE_SUCCESS, REMOVE_FAILED],
     request: (api: Object) => api.articles.remove(id),
+  };
+}
+
+export function update(data: Object, prevData: Object) {
+  const nextData = {
+    id: data.id,
+    ...Object.keys(data).reduce((memo, key) => (
+      prevData[key] !== undefined && data[key] === prevData[key] ? memo : {
+        ...memo,
+        [key]: data[key],
+      }
+    ), {}),
+  };
+
+  return {
+    types: [UPDATE, UPDATE_SUCCESS, UPDATE_FAIL],
+    request: (api: Object) => api.articles.update(nextData),
   };
 }
