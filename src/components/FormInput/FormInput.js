@@ -12,18 +12,38 @@ type FormInputType = {
   type?: string,
   type: ?string,
   label: string,
+  area: ?boolean,
 }
 
 function Locale(props: Object) {
-  const { input } = props;
+  const { input, area } = props;
 
-  return (
-    <div>
+  return (!area ?
+    <div className={css(styles.localWrapper)}>
       <input
+        className={css(styles.localInput)}
+        placeholder="en"
         value={input.value.ru || ''}
         onChange={(e) => input.onChange({ en: input.value.en || '', ru: e.target.value })}
       />
       <input
+        className={css(styles.localInput)}
+        placeholder="ru"
+        value={input.value.en || ''}
+        onChange={(e) => input.onChange({ ru: input.value.ru || '', en: e.target.value })}
+      />
+    </div> : <div className={css(styles.localWrapper)}>
+      <textarea
+        rows="5"
+        className={css(styles.localArea)}
+        placeholder="en"
+        value={input.value.ru || ''}
+        onChange={(e) => input.onChange({ en: input.value.en || '', ru: e.target.value })}
+      />
+      <textarea
+        rows="5"
+        className={css(styles.localArea)}
+        placeholder="ru"
         value={input.value.en || ''}
         onChange={(e) => input.onChange({ ru: input.value.ru || '', en: e.target.value })}
       />
@@ -56,6 +76,7 @@ class Image extends PureComponent {
     return (
       <label className={css(styles.imageWrapper)} >
         <input className={css(styles.imgInput)} type="file" onChange={this.onFileChange} />
+        { !data && !input.value ? <span className={css(styles.addBtn)}> + </span> : null }
         { data || input.value ? <img className={css(styles.img)} alt="banner preview" src={data || input.value} /> : null }
       </label>
     );
@@ -64,13 +85,13 @@ class Image extends PureComponent {
 export default class FromInput extends PureComponent {
   props: FormInputType
   renderInput = () => {
-    const { input, type, label } = this.props;
+    const { input, type, label, area } = this.props;
     switch (type) {
       case TYPES.IMAGE: {
         return <Image input={input} />;
       }
       case TYPES.LOCALE: {
-        return <Locale input={input} />;
+        return <Locale input={input} area={area} />;
       }
 
       default: {
@@ -79,6 +100,7 @@ export default class FromInput extends PureComponent {
             {...input}
             type={type || 'text'}
             placeholder={label}
+            className={css(type === 'checkbox' ? styles.checkInput : styles.input)}
           />
         );
       }
@@ -88,7 +110,7 @@ export default class FromInput extends PureComponent {
     const { meta, label } = this.props;
     return (
       <label className={css(styles.inputWrapper)} >
-        <span> {label} </span>
+        <span className={css(styles.inputLabel)}> {label} </span>
         {this.renderInput()}
         {meta.touched && meta.error ? <span> {meta.error} </span> : null}
       </label>

@@ -51,6 +51,7 @@
     "aphrodite": "^1.1.0",
     "axios": "^0.15.2",
     "babel-polyfill": "^6.16.0",
+    "classnames": "^2.2.5",
     "lodash": "^4.17.2",
     "modernizr": "^3.3.1",
     "react": "^15.4.1",

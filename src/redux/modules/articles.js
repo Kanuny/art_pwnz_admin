@@ -16,11 +16,15 @@ const UPDATE_SUCCESS = 'art_pwnz/articles/UPDATE_SUCCESS';
 const UPDATE_FAIL = 'art_pwnz/articles/UPDATE_FAIL';
 
 type ArticlesType = {
-  entities: Array<Object>
+  entities: Array<Object>,
+  count: number,
+  pageCount: number,
 };
 
 const initialState = {
   entities: [],
+  count: 0,
+  pageCount: 0,
 };
 
 export default function reducer(state: ArticlesType = initialState, action: Object = {}) {
@@ -29,6 +33,9 @@ export default function reducer(state: ArticlesType = initialState, action: Obje
       return {
         ...state,
         entities: action.result.articles,
+        count: action.result.count,
+        pageCount: action.result.pageCount,
+        page: action.result.page,
       };
     }
 
@@ -37,10 +44,10 @@ export default function reducer(state: ArticlesType = initialState, action: Obje
   }
 }
 
-export function load() {
+export function load(page: ?number) {
   return {
     types: [LOAD, LOAD_SUCCESS, LOAD_FAILED],
-    request: (api: Object) => api.articles.load(),
+    request: (api: Object) => api.articles.load(page || 0),
   };
 }
 

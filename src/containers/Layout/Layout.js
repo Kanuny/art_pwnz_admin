@@ -14,12 +14,14 @@ export default function Layout(props: LayoutPropType) {
     <div className={css(styles.layout)} >
       <nav className={css(styles.navList)} >
         <Link
+          activeClassName={css(styles.active)}
           className={css(styles.link)}
           to="/articles"
         >
           Gallery
         </Link>
         <Link
+          activeClassName={css(styles.active)}
           className={css(styles.link)}
           to="/videos"
         >

@@ -2,6 +2,7 @@
 import React, { PureComponent } from 'react';
 import { Field } from 'redux-form';
 import { css } from 'aphrodite';
+import { Link } from 'react-router';
 
 import styles from '../styles';
 import FormInput from '../../../components/FormInput/FormInput';
@@ -27,11 +28,11 @@ const imagesFields = [
 ];
 const formConfig = [
   { props: { label: 'Name' }, type: TYPES.LOCALE, name: 'name' },
-  { props: { label: 'Description' }, type: TYPES.LOCALE, name: 'description' },
+  { props: { label: 'Description', area: true }, type: TYPES.LOCALE, name: 'description' },
   { props: { label: 'Year' }, type: 'text', name: 'year' },
   { props: { label: 'Genre' }, type: TYPES.LOCALE, name: 'genre' },
   { props: { label: 'Post Name' }, type: TYPES.LOCALE, name: 'postName' },
-  { props: { label: 'Post Description' }, type: TYPES.LOCALE, name: 'postDescription' },
+  { props: { label: 'Post Description', area: true }, type: TYPES.LOCALE, name: 'postDescription' },
 ];
 const checkboxesConfig = [
   { props: { label: 'Is Hidden' }, type: 'checkbox', name: 'hidden' },
@@ -46,8 +47,33 @@ export default class ArticleForm extends PureComponent { // eslint-disable-line
     }
   }
   render() {
+    const linkText = '< Add new Article';
     return (
       <form onSubmit={this.props.handleSubmit} >
+        <div className={css(styles.btnWrapper)}>
+          <Link to="/articles" className={css(styles.backLink)}> {linkText} </Link>
+          {
+            this.props.isAdding
+              ? <button
+                className={css(styles.add)}
+                onSubmit={this.props.handleSubmit}
+              > Add </button>
+              : <div>
+                <button
+                  className={css(styles.remove)}
+                  onClick={this.props.removeArticle}
+                >
+                  Remove
+                </button>
+                <button
+                  className={css(styles.edit)}
+                  onSubmit={this.props.handleSubmit}
+                >
+                  Edit
+                </button>
+              </div>
+          }
+        </div>
         <div className={css(styles.fieldWrapper)}>
           <div className={css(styles.imageWrapper)}>
             {
@@ -85,14 +111,6 @@ export default class ArticleForm extends PureComponent { // eslint-disable-line
             </div>
           </div>
         </div>
-        {
-          this.props.isAdding
-            ? <button onSubmit={this.props.handleSubmit} > Add </button>
-            : <div>
-              <button onSubmit={this.props.handleSubmit} > Edit </button>
-              <button onClick={this.props.removeArticle} > Remove </button>
-            </div>
-        }
       </form>
     );
   }
