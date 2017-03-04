@@ -11,7 +11,6 @@ export default StyleSheet.create({
     width: '220px',
     backgroundColor: '#468195',
     display: 'flex',
-    color: '#c3b5b5',
     flexDirection: 'column',
     alignItems: 'center',
   },
@@ -25,6 +24,7 @@ export default StyleSheet.create({
     color: 'white',
   },
   link: {
+    color: '#c3b5b5',
     padding: '20px',
     textDecoration: 'none',
     display: 'block',

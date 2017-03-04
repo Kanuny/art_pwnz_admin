@@ -14,8 +14,8 @@ export default function Layout(props: LayoutPropType) {
     <div className={css(styles.layout)} >
       <nav className={css(styles.navList)} >
         <Link
-          activeClassName={css(styles.active)}
           className={css(styles.link)}
+          activeClassName={css(styles.active)}
           to="/articles"
         >
           Gallery

@@ -25,13 +25,13 @@ export default class GalleryGrid extends PureComponent {
     return (
       <div>
         <div className={css(styles.gridWrapper)}>
-          <Link className={css(styles.addBtn)} to="/article/new"> + </Link>
+          <Link className={css(styles.addBtn)} to="/articles/add"> + </Link>
 
           {
             this.props.articles.map((item) =>
               <Link
                 className={css(styles.editBtn)}
-                to={`/article/${item.id}`}
+                to={`/articles/edit/${item.id}`}
                 key={item.id}
               >
                 <img // eslint-disable-line

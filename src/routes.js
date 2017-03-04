@@ -13,8 +13,10 @@ export default (browserHistory) => (
   <Router history={browserHistory} render={(props) => <ReduxAsyncConnect {...props} />}>
     <Route path="/" component={Layout}>
       <Route path="articles" component={Gallery} />
-      <Route path="article/new" component={Article} />
-      <Route path="article/:id" component={Article} />
+
+      <Route path="articles/add" component={Article} />
+      <Route path="articles/edit/:id" component={Article} />
+
       <Route path="videos" component={Videos} />
       <Route path="videos/new" component={Video} />
       <Route path="videos/:id" component={Video} />

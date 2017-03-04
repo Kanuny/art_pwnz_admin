@@ -4,7 +4,7 @@ module.exports = {
   entry: './src/app.js',
   output: {
     path: './bin',
-    filename: 'app.bundle.js',
+    filename: '[name].js',
   },
   resolve: {
     extensions: ['', '.js', '.json'],

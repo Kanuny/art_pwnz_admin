@@ -21,7 +21,7 @@ export default StyleSheet.create({
   },
   videosWrapper: {
     display: 'flex',
-    minHeight: '90vh',
+    minHeight: '85vh',
   },
   videoItem: {
     display: 'inline-block',
