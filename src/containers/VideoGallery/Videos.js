@@ -28,7 +28,7 @@ class Grid extends PureComponent {
     return (
       <div className={css(styles.videoWrapper)}>
         <section className={css(styles.videosWrapper)}>
-          <Link className={css(styles.addBtn)} to="videos/new">
+          <Link className={css(styles.addBtn)} to="videos/add">
             +
           </Link>
           {
@@ -38,7 +38,7 @@ class Grid extends PureComponent {
                   css(styles.videoItem),
                   index % 2 === 0 ? css(styles.left) : '',
                 )}
-                to={`videos/${video.id}`}
+                to={`videos/edit/${video.id}`}
                 key={video.id}
               >
                 <img

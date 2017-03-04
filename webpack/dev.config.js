@@ -6,6 +6,8 @@ module.exports = {
   output: {
     path: './bin',
     filename: '[name].js',
+    chunkFilename: '[name].chunk.js',
+    publicPath: '/',
   },
   resolve: {
     extensions: ['', '.js', '.json'],
