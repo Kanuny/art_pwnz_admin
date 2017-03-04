@@ -20,11 +20,15 @@ const GET_BY_ID_SUCCESS = 'art_pwnz/videos/GET_BY_ID_SUCCESS';
 const GET_BY_ID_FAILED = 'art_pwnz/videos/GET_BY_ID_FAILED';
 
 type VideosType = {
-  entities: Array<Object>
+  entities: Array<Object>,
+  count: number,
+  pageCount: number,
 };
 
 const initialState = {
   entities: [],
+  count: 0,
+  pageCount: 0,
 };
 
 export default function reducer(state: VideosType = initialState, action: Object = {}) {
@@ -33,6 +37,9 @@ export default function reducer(state: VideosType = initialState, action: Object
       return {
         ...state,
         entities: action.result.videos,
+        count: action.result.count,
+        pageCount: action.result.pageCount,
+        page: action.result.page,
       };
     }
 

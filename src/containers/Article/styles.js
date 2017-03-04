@@ -33,6 +33,7 @@ export default StyleSheet.create({
     width: '120px',
     height: '25px',
     color: 'white',
+    marginLeft: '15px',
   },
   remove: {
     backgroundColor: '#cd0000',
@@ -40,6 +41,7 @@ export default StyleSheet.create({
     width: '120px',
     height: '25px',
     color: 'white',
+    marginLeft: '15px',
   },
   edit: {
     backgroundColor: '#468195',

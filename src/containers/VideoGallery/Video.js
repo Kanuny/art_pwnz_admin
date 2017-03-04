@@ -2,7 +2,7 @@
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 import { compose } from 'lodash/fp';
-import { browserHistory } from 'react-router';
+import { browserHistory, Link } from 'react-router';
 import React, { PureComponent } from 'react';
 import { css } from 'aphrodite';
 
@@ -47,10 +47,29 @@ class VideoForm extends PureComponent { // eslint-disable-line
   }
   render() {
     const { id } = this.props.params;
+    const linkText = '< Add new Video';
 
     return (
       <form >
-
+        <header className={css(styles.btnWrapper)}>
+          <Link to="/articles" className={css(styles.backLink)}> {linkText} </Link>
+          <div>
+            <button
+              className={css(styles.add)}
+              onClick={this.props.handleSubmit}
+            > {id ? 'Update' : 'Add'} </button>
+            {
+              id
+              ? <button
+                className={css(styles.remove)}
+                onClick={this.props.removeArticle}
+              >
+                Remove
+              </button>
+              : null
+            }
+          </div>
+        </header>
         <div className={css(styles.inputWrapper)}>
           <div className={css(styles.textWrapper)}>
             {
@@ -64,10 +83,6 @@ class VideoForm extends PureComponent { // eslint-disable-line
             }
           </div>
         </div>
-
-        <button onClick={this.props.handleSubmit} > {id ? 'Update' : 'Add'} </button>
-        { id ? <button onClick={this.props.removeArticle} > Remove </button> : null }
-
       </form>
     );
   }

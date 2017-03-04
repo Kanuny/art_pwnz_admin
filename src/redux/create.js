@@ -16,7 +16,6 @@ import sagas from './sagas/sagas';
 import reducers from './modules/reducers';
 
 const LOCAL_STORAGE_KEY = 'jambler-affiliate';
-const PORT = process.env.PORT || 3000;
 const ENV = process.env.NODE_ENV;
 
 export default async function configureStore(history) {
@@ -34,7 +33,7 @@ export default async function configureStore(history) {
       : false),
     collapsed: () => true,
   });
-  const apiUrl = `http://localhost:${PORT}`;
+  const apiUrl = 'https://artpwnz.herokuapp.com/';
 
   const localStorageData = await filteredLocalStorageEngine.load();
   const request = createApi({
