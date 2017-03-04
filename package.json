@@ -4,7 +4,7 @@
   "description": "admin for art pwnz",
   "main": "index.js",
   "scripts": {
-    "serve": "PORT=80 pushstate-server ./",
+    "serve": "HOST=http://localhost PORT=3000 pushstate-server ./",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node ./webpack/build.js",
     "start": "npm run build && npm run serve",
