@@ -38,6 +38,7 @@ const formConfig = [
   { props: { label: 'Name' }, type: TYPES.LOCALE, name: 'name' },
   { props: { label: 'Description', area: true }, type: TYPES.LOCALE, name: 'description' },
   { props: { label: 'Year' }, type: 'text', name: 'year' },
+  { props: { label: 'Size' }, type: 'text', name: 'size' },
   { props: { label: 'Genre', values: genreValues }, type: TYPES.SELECT, name: 'genre' },
   { props: { label: 'Post Name' }, type: TYPES.LOCALE, name: 'postName' },
   { props: { label: 'Post Description', area: true }, type: TYPES.LOCALE, name: 'postDescription' },
