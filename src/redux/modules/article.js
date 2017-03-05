@@ -3,6 +3,8 @@ const LOAD = 'art_pwnz/article/LOAD';
 export const LOAD_SUCCESS = 'art_pwnz/article/LOAD_SUCCESS';
 const LOAD_FAILED = 'art_pwnz/article/LOAD_FAILED';
 
+export const CLEAR = 'art_pwnz/article/CLEAR';
+
 type ArticleType = {
   entity: Object,
 };
@@ -19,7 +21,11 @@ export default function reducer(state: ArticleType = initialState, action: Objec
         entity: action.result,
       };
     }
-
+    case CLEAR: {
+      return {
+        ...initialState,
+      };
+    }
     default:
       return state;
   }
@@ -32,3 +38,8 @@ export function getById(id: number) {
   };
 }
 
+export function clear() {
+  return {
+    type: CLEAR,
+  };
+}

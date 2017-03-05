@@ -52,7 +52,7 @@ class VideoForm extends PureComponent { // eslint-disable-line
     return (
       <form >
         <header className={css(styles.btnWrapper)}>
-          <Link to="/articles" className={css(styles.backLink)}> {linkText} </Link>
+          <Link to="/videos" className={css(styles.backLink)}> {linkText} </Link>
           <div>
             <button
               className={css(styles.add)}

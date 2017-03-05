@@ -1,7 +1,7 @@
-import { put } from 'redux-saga/effects';
+import { put, take } from 'redux-saga/effects';
 import { takeEvery } from 'redux-saga';
 
-import { LOAD_SUCCESS } from '../modules/article';
+import { LOAD_SUCCESS, CLEAR } from '../modules/article';
 import { loadImage as getImageById, clear } from '../modules/images';
 
 function* loadImage(action) {
@@ -13,10 +13,18 @@ function* loadImage(action) {
   }
 }
 
+function* onArticleClear() {
+  while (1) {
+    yield take(CLEAR);
+    yield put(clear());
+  }
+}
+
 function* onArticleLoadSubscribe() {
   yield takeEvery(LOAD_SUCCESS, loadImage);
 }
 
 export default [
   onArticleLoadSubscribe,
+  onArticleClear,
 ];

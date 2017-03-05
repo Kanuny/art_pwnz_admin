@@ -5,7 +5,7 @@ import { compose } from 'lodash/fp';
 import { browserHistory } from 'react-router';
 
 import { add, remove as removeArticle, update } from '../../redux/modules/articles';
-import { getById } from '../../redux/modules/article';
+import { getById, clear } from '../../redux/modules/article';
 
 import ArticleFrom from './components/ArticleForm';
 
@@ -20,7 +20,7 @@ export default compose(
         }), {}),
       },
     }),
-    { add, update, getById, removeArticle },
+    { add, update, getById, removeArticle, clear },
     (props, methods, ownProps) => ({
       ...props,
       ...methods,

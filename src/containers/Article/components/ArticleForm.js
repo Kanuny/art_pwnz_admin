@@ -13,6 +13,7 @@ type FormType = {
   getById: Function,
   removeArticle: Function,
   isAdding: boolean,
+  clear: Function,
 
   params: {
     id?: number,
@@ -45,6 +46,9 @@ export default class ArticleForm extends PureComponent { // eslint-disable-line
     if (this.props.params.id) {
       this.props.getById(this.props.params.id);
     }
+  }
+  componentWillUnmount() {
+    this.props.clear();
   }
   render() {
     const linkText = '< Add new Article';
