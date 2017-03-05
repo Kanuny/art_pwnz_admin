@@ -12,7 +12,20 @@ type FormInputType = {
   type?: string,
   type: ?string,
   label: string,
+  values: ?Array<Object>,
   area: ?boolean,
+}
+
+function Select(props: Object) {
+  const { input, values } = props;
+  return (
+    <select {...input} className={css(styles.input)} >
+      <option> Select Value... </option>
+      {
+        values.map((val, index) => (<option key={index} value={val.value} > { val.text } </option>))
+      }
+    </select>
+  );
 }
 
 function Locale(props: Object) {
@@ -85,7 +98,7 @@ class Image extends PureComponent {
 export default class FromInput extends PureComponent {
   props: FormInputType
   renderInput = () => {
-    const { input, type, label, area } = this.props;
+    const { input, type, label, area, values } = this.props;
     switch (type) {
       case TYPES.IMAGE: {
         return <Image input={input} />;
@@ -93,7 +106,9 @@ export default class FromInput extends PureComponent {
       case TYPES.LOCALE: {
         return <Locale input={input} area={area} />;
       }
-
+      case TYPES.SELECT: {
+        return <Select input={input} values={values} />;
+      }
       default: {
         return (
           <input

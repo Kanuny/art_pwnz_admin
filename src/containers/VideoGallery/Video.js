@@ -47,17 +47,13 @@ class VideoForm extends PureComponent { // eslint-disable-line
   }
   render() {
     const { id } = this.props.params;
-    const linkText = '< Add new Video';
+    const linkText = '< Back';
 
     return (
       <form >
         <header className={css(styles.btnWrapper)}>
           <Link to="/videos" className={css(styles.backLink)}> {linkText} </Link>
           <div>
-            <button
-              className={css(styles.add)}
-              onClick={this.props.handleSubmit}
-            > {id ? 'Save' : 'Add'} </button>
             {
               id
               ? <button
@@ -68,6 +64,10 @@ class VideoForm extends PureComponent { // eslint-disable-line
               </button>
               : null
             }
+            <button
+              className={css(styles.add)}
+              onClick={this.props.handleSubmit}
+            > {id ? 'Save' : 'Add'} </button>
           </div>
         </header>
         <div className={css(styles.inputWrapper)}>
