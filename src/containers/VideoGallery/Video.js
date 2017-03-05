@@ -103,6 +103,11 @@ export default compose(
       ),
       removeArticle: (e) => {
         e.preventDefault();
+        const answer = confirm('are you sure you want to delete item?');
+        if (!answer) {
+          return;
+        }
+
         methods
           .removeVideo(ownProps.params.id.toString())
           .then(() => browserHistory.push('/videos'));

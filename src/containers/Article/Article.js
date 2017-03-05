@@ -29,10 +29,18 @@ export default compose(
       onSubmit: (values) => (!ownProps.params.id
         ? methods.add(values).then(() => browserHistory.push('/articles'))
         : methods.update(values, props.initialValues).then(() => browserHistory.push('/articles'))),
-      removeArticle: () =>
+      removeArticle: (e) => {
+        e.preventDefault();
+        const answer = confirm('are you sure you want to delete item?');
+        if (!answer) {
+          return;
+        }
+
         methods
           .removeArticle(props.initialValues.id)
-          .then(() => browserHistory.push('/articles')),
+          .then(() => browserHistory.push('/articles'));
+      },
+
     }),
   ),
   reduxForm({

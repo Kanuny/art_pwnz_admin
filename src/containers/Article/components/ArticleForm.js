@@ -69,7 +69,7 @@ export default class ArticleForm extends PureComponent { // eslint-disable-line
                   className={css(styles.edit)}
                   onSubmit={this.props.handleSubmit}
                 >
-                  Edit
+                  Save
                 </button>
               </div>
           }
