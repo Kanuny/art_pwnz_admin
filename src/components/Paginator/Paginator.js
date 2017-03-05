@@ -33,9 +33,7 @@ function getPaginationState(currentPage, pagesCount) {
 }
 
 export default function Paginator(props: Object) {
-  console.log('test');
   const { page, pageCount, onPageChange } = props;
-  console.log('pages', props);
   const pages = getPaginationState(page, pageCount);
   const prevPage = page - 2 <= 0
     ? 0

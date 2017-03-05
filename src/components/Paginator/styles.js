@@ -5,6 +5,7 @@ const blue = '#6D8BAD';
 export default StyleSheet.create({
   pageContainer: {
     display: 'flex',
+    width: '100%',
     justifyContent: 'center',
   },
   pageControl: {
