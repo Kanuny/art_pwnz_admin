@@ -57,7 +57,7 @@ class VideoForm extends PureComponent { // eslint-disable-line
             <button
               className={css(styles.add)}
               onClick={this.props.handleSubmit}
-            > {id ? 'Update' : 'Add'} </button>
+            > {id ? 'Save' : 'Add'} </button>
             {
               id
               ? <button
