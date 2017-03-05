@@ -69,7 +69,7 @@ export default connect(
     videos: videos.entities,
     pageSize: videos.pageCount,
     page: parseInt(videos.page, 10) + 1,
-    count: Math.floor((videos.count / videos.pageCount) + 1),
+    count: Math.floor(videos.count / (videos.pageCount + 1)) + 1,
   }),
   { load: loadVideo },
 )(Grid);

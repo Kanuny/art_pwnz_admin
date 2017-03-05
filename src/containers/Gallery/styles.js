@@ -3,7 +3,7 @@ import { StyleSheet } from 'aphrodite';
 
 export default StyleSheet.create({
   addBtn: {
-    display: 'inline-block',
+    float: 'left',
     margin: '10px',
     width: '150px',
     height: '150px',
@@ -21,13 +21,13 @@ export default StyleSheet.create({
     margin: '10px',
     width: '150px',
     height: '150px',
+    float: 'left',
   },
   img: {
     width: '150px',
     height: '150px',
   },
   gridWrapper: {
-    display: 'flex',
     minHeight: '85vh',
   },
 });
