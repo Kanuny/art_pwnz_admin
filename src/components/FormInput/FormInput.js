@@ -22,13 +22,13 @@ function Locale(props: Object) {
     <div className={css(styles.localWrapper)}>
       <input
         className={css(styles.localInput)}
-        placeholder="en"
+        placeholder="ru"
         value={input.value.ru || ''}
         onChange={(e) => input.onChange({ en: input.value.en || '', ru: e.target.value })}
       />
       <input
         className={css(styles.localInput)}
-        placeholder="ru"
+        placeholder="en"
         value={input.value.en || ''}
         onChange={(e) => input.onChange({ ru: input.value.ru || '', en: e.target.value })}
       />
@@ -36,14 +36,14 @@ function Locale(props: Object) {
       <textarea
         rows="5"
         className={css(styles.localArea)}
-        placeholder="en"
+        placeholder="ru"
         value={input.value.ru || ''}
         onChange={(e) => input.onChange({ en: input.value.en || '', ru: e.target.value })}
       />
       <textarea
         rows="5"
         className={css(styles.localArea)}
-        placeholder="ru"
+        placeholder="en"
         value={input.value.en || ''}
         onChange={(e) => input.onChange({ ru: input.value.ru || '', en: e.target.value })}
       />
