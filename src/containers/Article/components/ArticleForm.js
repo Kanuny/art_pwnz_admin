@@ -21,12 +21,19 @@ type FormType = {
 }
 
 const genreValues = [{
-  text: 'trash',
-  value: 'TRASH',
+  text: 'landscape',
+  value: 'landscape',
 }, {
-  text: 'arthouse',
-  value: 'ARTHOUSE',
+  text: 'Portrait',
+  value: 'portrait',
+}, {
+  text: 'Still Life',
+  value: 'stillLife',
+}, {
+  text: 'Figurative',
+  value: 'figurative',
 }];
+
 const imagesFields = [
   { props: { label: 'Preview' }, type: TYPES.IMAGE, name: 'preview' },
   { props: { label: 'Main Image' }, type: TYPES.IMAGE, name: 'main' },
