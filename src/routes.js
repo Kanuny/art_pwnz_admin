@@ -7,9 +7,11 @@ import Gallery from './containers/Gallery/Gallery';
 import Article from './containers/Article/Article';
 import Videos from './containers/VideoGallery/Videos';
 import Video from './containers/VideoGallery/Video';
+import Login from './containers/Login/Login';
 
 export default (browserHistory) => (
   <Router history={browserHistory} >
+    <Route component={Login} path="/login" />
     <Route component={Layout}>
       <Redirect from="/" to="/articles" />
 

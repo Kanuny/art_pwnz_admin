@@ -8,6 +8,7 @@ import articles from './articles';
 import article from './article';
 import images from './images';
 import videos from './videos';
+import auth from './auth';
 
 export default combineReducers({
   routing: routerReducer,
@@ -18,4 +19,5 @@ export default combineReducers({
   article,
   images,
   videos,
+  auth,
 });
