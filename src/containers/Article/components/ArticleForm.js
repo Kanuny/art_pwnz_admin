@@ -21,7 +21,7 @@ type FormType = {
 }
 
 const genreValues = [{
-  text: 'landscape',
+  text: 'Landscape',
   value: 'landscape',
 }, {
   text: 'Portrait',
@@ -52,7 +52,7 @@ const formConfig = [
 ];
 const checkboxesConfig = [
   { props: { label: 'Is Hidden' }, type: 'checkbox', name: 'hidden' },
-  { props: { label: 'Fosr Sale' }, type: 'checkbox', name: 'forSale' },
+  { props: { label: 'For Sale' }, type: 'checkbox', name: 'forSale' },
 ];
 
 export default class ArticleForm extends PureComponent { // eslint-disable-line
