@@ -33,7 +33,7 @@ export default async function configureStore(history) {
       : false),
     collapsed: () => true,
   });
-  const apiUrl = 'https://artpwnz.herokuapp.com/';
+  const apiUrl = 'http://195.110.58.118:3000';
 
   const localStorageData = await filteredLocalStorageEngine.load();
   const request = createApi({
