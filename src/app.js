@@ -13,7 +13,7 @@ async function launch() {
 
   ReactDOM.render(
     <Provider store={store}>
-      {routes(browserHistory)}
+      {routes(browserHistory, store)}
     </Provider>,
     document.getElementById('app'),
   );

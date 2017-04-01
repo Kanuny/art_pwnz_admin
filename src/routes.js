@@ -8,8 +8,20 @@ import Article from './containers/Article/Article';
 import Videos from './containers/VideoGallery/Videos';
 import Video from './containers/VideoGallery/Video';
 import Login from './containers/Login/Login';
+import { loginByToken } from './redux/modules/auth';
 
-export default (browserHistory) => (
+function getComponent(Component) {
+  return (store) => async (location, cb) => {
+    const result = await store.dispatch(loginByToken());
+
+    if (result.error) {
+      return cb(result.error);
+    }
+    return cb(null, Component);
+  };
+}
+
+export default (browserHistory, store) => (
   <Router history={browserHistory} >
     <Route component={Login} path="/login" />
     <Route component={Layout}>
@@ -18,7 +30,7 @@ export default (browserHistory) => (
       <Route path="/articles" >
         <IndexRoute component={Gallery} />
 
-        <Route path="add" component={Article} />
+        <Route path="add" getComponent={getComponent(Article)(store)} />
         <Route path="edit/:id" component={Article} />
       </Route>
       <Route path="/videos" >
