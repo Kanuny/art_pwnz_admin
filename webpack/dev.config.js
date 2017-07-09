@@ -4,7 +4,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: './src/app.js',
   output: {
-    path: './bin',
+    path: './bin/static',
     filename: '[name].js',
     chunkFilename: '[name].chunk.js',
     publicPath: '/',
@@ -37,7 +37,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      filename: 'index.html',
+      filename: '../index.html',
       template: 'index.html',
       inject: true
     })
